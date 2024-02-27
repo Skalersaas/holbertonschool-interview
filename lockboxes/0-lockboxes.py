@@ -15,7 +15,7 @@ def canUnlockAll(boxes):
         # Removing keys with no boxes
         opened = [i for i in opened if i < len(boxes)]
         # iterating
-        id+=1
+        id += 1
         # If we got all boxes opened return true
         if len(opened) == len(boxes):
             return True
