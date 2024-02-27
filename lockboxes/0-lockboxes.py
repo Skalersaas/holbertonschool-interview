@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-# Lockboxes
+'''
+    Locboxes
+'''
+
 if __name__ == "__main__":
     def canUnlockAll(boxes):
         #First box is always open
