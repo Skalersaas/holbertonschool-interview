@@ -22,11 +22,21 @@ listint_t* insert_node(listint_t** head, const int n)
         listint_t* prev;
         prev = malloc(sizeof(listint_t));
         while (1) {
-
-            if (current->n < n && current->next != NULL)
+            if(current->next == NULL)
+            {
+                current->next= new;
+                break;
+            }
+            else if (current->n < n)
             {
                 prev = current;
                 current = current->next;
+            }
+            else if(prev->next == NULL)
+            {
+                new->next = *head;
+                *head = new;
+                break;
             }
             else
             {
