@@ -39,28 +39,3 @@ listint_t* insert_node(listint_t** head, const int n)
 
     return (new);
 }
-int main() {
-    listint_t* head;
-    head = NULL;
-    add_nodeint_end(&head, 0);
-    add_nodeint_end(&head, 1);
-    add_nodeint_end(&head, 2);
-    add_nodeint_end(&head, 3);
-    add_nodeint_end(&head, 4);
-    add_nodeint_end(&head, 98);
-    add_nodeint_end(&head, 402);
-    add_nodeint_end(&head, 1024);
-    print_listint(head);
-
-    printf("-----------------\n");
-
-    insert_node(&head, 27);
-    insert_node(&head, 272);
-    insert_node(&head, 17);
-
-    print_listint(head);
-
-    free_listint(head);
-
-    return (0);
-}
