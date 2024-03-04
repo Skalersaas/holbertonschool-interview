@@ -45,7 +45,8 @@ listint_t* insert_node(listint_t** head, const int n)
                 break;
             }
         }
+        free(prev);
     }
-
+    free(current);
     return (new);
 }
