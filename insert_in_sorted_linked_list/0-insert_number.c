@@ -23,7 +23,6 @@ listint_t* insert_node(listint_t** head, const int n)
     else
     {
         listint_t* prev;
-        prev = malloc(sizeof(listint_t));
         while (1) 
         {
             if (current->n < n)
