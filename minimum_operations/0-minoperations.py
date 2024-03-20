@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 
 """
-Calculate the minimum number of operations to obtain the desired count of elements.
+Minimum number of operations to obtain the desired count of elements.
 """
+
 
 def biggest_divisor(n):
     for i in range(int(n / 2), 0, -1):
         if n % i == 0:
             return i
+
 
 def minOperations(n):
     if n == 2:
