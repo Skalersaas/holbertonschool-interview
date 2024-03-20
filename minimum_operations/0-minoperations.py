@@ -1,18 +1,24 @@
-#!/usr/bin/python3
+'''#!/usr/bin/python3'''
+
 '''
 Min ops to get needed count of elements
 '''
+import math
+def biggest_divisor(n):
+    for i in range(int(n/2), 0, -1):
+        if(n%i==0):
+            return i
 
 def minOperations(n):
-    if(n==4):
-        return 4
-    elif(n==3):
-        return 3
-    elif(n==2):
+    if(n==2):
         return 2
-    elif(n==1):
+    elif(n==1 or n==0 or n<0):
         return 0
     elif(n%2==0):
         return minOperations(n/2) + 2
     else:
-        return minOperations(n-3) + 1
+        bd = biggest_divisor(n)
+        if(bd==1):
+            return n
+        else:
+            return minOperations(bd) + int(n/bd)
