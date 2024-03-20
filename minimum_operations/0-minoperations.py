@@ -1,4 +1,4 @@
-'''#!/usr/bin/python3'''
+#!/usr/bin/python3
 
 '''
 Min ops to get needed count of elements
