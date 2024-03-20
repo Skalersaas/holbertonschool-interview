@@ -1,24 +1,26 @@
 #!/usr/bin/python3
 
-'''
-Min ops to get needed count of elements
-'''
-import math
+"""
+Calculate the minimum number of operations to obtain the desired count of elements.
+"""
+
 def biggest_divisor(n):
-    for i in range(int(n/2), 0, -1):
-        if(n%i==0):
+    for i in range(int(n / 2), 0, -1):
+        if n % i == 0:
             return i
 
 def minOperations(n):
-    if(n==2):
+    if n == 2:
         return 2
-    elif(n==1 or n==0 or n<0):
+    elif n == 1 or n == 0 or n < 0:
         return 0
-    elif(n%2==0):
-        return minOperations(n/2) + 2
+    elif n % 2 == 0:
+        return minOperations(n / 2) + 2
     else:
         bd = biggest_divisor(n)
-        if(bd==1):
+        if bd == 1:
             return n
         else:
-            return minOperations(bd) + int(n/bd)
+            return minOperations(bd) + int(n / bd)
+
+print(minOperations(51))
