@@ -22,5 +22,3 @@ def minOperations(n):
             return n
         else:
             return minOperations(bd) + int(n / bd)
-
-print(minOperations(51))
