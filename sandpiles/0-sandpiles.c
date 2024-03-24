@@ -40,36 +40,7 @@ static void print_grid(int grid[3][3])
 		printf("\n");
 	}
 }
-/**
- * rolling_off - Makes every cell with more than 3 grains share 
- * @grid1: Left 3x3 grid
- * @grid2: Right 3x3 grid
- * 
- * Return: Shared grains
- */
-int** rolling_off(int grid1[3][3], int grid2[3][3])
-{
-	int i, j;
-	
-	for (i = 0; i < 3; i++)
-		for (j = 0; j < 3; j++)
-			if (grid1[i][j] > 3)
-			{
-				grid2[i][j] -= 4;
-				if (i > 0)
-					grid2[i - 1][j] += 1;
 
-				if (i < 2)
-					grid2[i + 1][j] += 1;
-
-				if (j > 0)
-					grid2[i][j - 1] += 1;
-
-				if (j < 2)
-					grid2[i][j + 1] += 1;
-			}
-	return grid2;
-}
 /**
  * stable - Checks if sandpile is stable
  * @grid1: Left 3x3 grid
@@ -92,8 +63,20 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	do{
 		printf("=\n");
 		print_grid(grid1);
-		grid2 = rolling_off(grid1, grid2);
-
+		for (i = 0; i < 3; i++)
+			for (j = 0; j < 3; j++)
+				if (grid1[i][j] > 3)
+				{
+					grid2[i][j] -= 4;
+					if (i > 0)
+						grid2[i - 1][j] += 1;
+					if (i < 2)
+						grid2[i + 1][j] += 1;
+					if (j > 0)
+						grid2[i][j - 1] += 1;
+					if (j < 2)
+						grid2[i][j + 1] += 1;
+				}
 		for (i = 0; i < 3; i++)
 		{
 			for (j = 0; j < 3; j++)
