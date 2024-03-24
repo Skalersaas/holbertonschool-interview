@@ -42,7 +42,7 @@ static void print_grid(int grid[3][3])
 }
 
 /**
- * stable - Checks if sandpile is stable
+ * sandpiles_sum - Summs two sandpiles into grid1
  * @grid1: Left 3x3 grid
  * @grid2: Right 3x3 grid
  */
@@ -60,7 +60,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	if (stable(grid1))
 		return;
 
-	do{
+	do {
 		printf("=\n");
 		print_grid(grid1);
 		for (i = 0; i < 3; i++)
