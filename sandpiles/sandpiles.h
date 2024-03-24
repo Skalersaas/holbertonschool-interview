@@ -4,6 +4,7 @@
 #include <stddef.h>
 
 
+static void print_grid(int grid[3][3]);
 
 
 int stable(int grid[3][3]);
