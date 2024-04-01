@@ -49,12 +49,21 @@ int is_palindrome(listint_t** head)
 {
     int size = list_size(*head) / 2;
     listint_t* center = get(*head, size);
+    listint_t* h;
     int i;
     
+    h = *head;
     revert(&center);
 
     for (i = 0; i < size;i++)
-        if (get(*head, i)->n != get(center, i)->n)
+    {
+        if (h->n == center->n)
+        {
+            h = h->next;
+            center = center->next;
+        }
+        else
             return 0;
+    }
     return 1;
 }
