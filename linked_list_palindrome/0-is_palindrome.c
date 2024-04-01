@@ -30,17 +30,30 @@ listint_t* get(listint_t* head, int num)
     }
     return current;
 }
+void revert(listint_t** head)
+{
+    listint_t* prev = NULL;
+    listint_t* current = *head;
+    listint_t* next = NULL;
+    while (current != NULL) {
+        next = current->next;
+
+        current->next = prev;
+
+        prev = current;
+        current = next;
+    }
+    *head = prev;
+}
 int is_palindrome(listint_t** head)
 {
     int size = list_size(*head) / 2;
     listint_t* center = get(*head, size);
+    revert(&center);
 
     int i;
-    int even;
-
-    even = size % 2;;
     for (i = 0; i < size;i++)
-        if (get(*head, size - i - even)->n != get(center, i)->n)
+        if (get(*head, i)->n != get(center, i)->n)
             return 0;
     return 1;
 }
