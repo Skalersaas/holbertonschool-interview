@@ -49,9 +49,10 @@ int is_palindrome(listint_t** head)
 {
     int size = list_size(*head) / 2;
     listint_t* center = get(*head, size);
+    int i;
+    
     revert(&center);
 
-    int i;
     for (i = 0; i < size;i++)
         if (get(*head, i)->n != get(center, i)->n)
             return 0;
