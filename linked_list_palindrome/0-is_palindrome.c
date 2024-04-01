@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "lists.h"
 
-size_t list_size(const listint_t* h)
+int list_size(listint_t* h)
 {
-    const listint_t* current;
+    listint_t* current;
     unsigned int n;
 
     current = h;
@@ -20,7 +20,7 @@ size_t list_size(const listint_t* h)
 
 listint_t* get(listint_t* head, int num)
 {
-    const listint_t* current;
+    listint_t* current;
 
     current = head;
     while (current != NULL && num != 0)
@@ -32,7 +32,7 @@ listint_t* get(listint_t* head, int num)
 }
 int is_palindrome(listint_t** head)
 {
-    size_t size = list_size(*head) / 2;
+    int size = list_size(*head) / 2;
     listint_t* center = get(*head, size);
 
     int i;
