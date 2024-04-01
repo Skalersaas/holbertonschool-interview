@@ -30,7 +30,7 @@ listint_t* get(listint_t* head, int num)
     }
     return current;
 }
-void revert(listint_t** head)
+void reverse(listint_t** head)
 {
     listint_t* prev = NULL;
     listint_t* current = *head;
@@ -53,7 +53,7 @@ int is_palindrome(listint_t** head)
     int i;
     
     h = *head;
-    revert(&center);
+    reverse(&center);
 
     for (i = 0; i < size;i++)
     {
