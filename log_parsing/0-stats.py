@@ -8,7 +8,7 @@ import sys
 if __name__ == "__main__":
 
 
-    file_size: int = 0
+    file_size = 0
     ids = {
         200: 0,
         301: 0,
