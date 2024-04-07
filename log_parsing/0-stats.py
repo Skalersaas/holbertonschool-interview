@@ -3,43 +3,39 @@
 
 import sys
 
-codes = {}
-status_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
+file_size: int = 0
+ids = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 count = 0
-size = 0
 
-try:
-    for ln in sys.stdin:
-        if count == 10:
-            print("File size: {}".format(size))
-            for key in sorted(codes):
-                print("{}: {}".format(key, codes[key]))
-            count = 1
-        else:
-            count += 1
 
-        ln = ln.split()
+def parse(line):
+    '''Parses input line and returns last two values'''
+    nums = line.rstrip().split(' ')
+    try:
+        return [int(nums[7]), int(nums[8])]
+    finally:
+        return None
 
-        try:
-            size = size + int(ln[-1])
-        except (IndexError, ValueError):
-            pass
 
-        try:
-            if ln[-2] in status_codes:
-                if codes.get(ln[-2], -1) == -1:
-                    codes[ln[-2]] = 1
-                else:
-                    codes[ln[-2]] += 1
-        except IndexError:
-            pass
+def write_info():
+    '''Writes info to the terminal'''
+    print("File size:", file_size)
+    for key in ids.keys():
+        if ids[key] > 0:
+            print(f"{key}: {ids[key]}")
 
-    print("File size: {}".format(size))
-    for key in sorted(codes):
-        print("{}: {}".format(key, codes[key]))
 
-except KeyboardInterrupt:
-    print("File size: {}".format(size))
-    for key in sorted(codes):
-        print("{}: {}".format(key, codes[key]))
-    raise
+while True:
+    try:
+        for line in sys.stdin:
+            if count == 9:
+                write_info()
+                count = 0
+            else:
+                nums = parse(line)
+                if nums and nums[0] and nums[1]:
+                    ids[nums[0]] += 1
+                    file_size += nums[1]
+                    count += 1
+    except KeyboardInterrupt:
+        write_info()
