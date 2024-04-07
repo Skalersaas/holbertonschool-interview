@@ -10,7 +10,7 @@ if __name__ == "__main__":
     file_size = 0
     ids = {200: 0, 301: 0, 400: 0, 401: 0,
            403: 0, 404: 0, 405: 0, 500: 0}
-    count = 0
+    count = 1
 
     def parse(line):
         '''
@@ -18,10 +18,10 @@ if __name__ == "__main__":
         '''
         nums = line.rstrip().split(' ')
         try:
-            return [int(nums[7]), int(nums[8])]
-        finally:
-            return None
-
+            ids[int(nums[-2])] += 1
+            file_size += int(nums[-1])
+        except BaseException:
+            pass 
 
     def write_info():
         '''
@@ -35,14 +35,9 @@ if __name__ == "__main__":
     try:
         # read all lines
         for line in sys.stdin:
-            if count == 9:
+            parse(line)
+            if count % 10 == 0:
                 write_info()
-                count = 0
-            else:
-                nums = parse(line)
-                if nums and nums[0] and nums[1]:
-                    ids[nums[0]] += 1
-                    file_size += nums[1]
-                    count += 1
+            count += 1
     except KeyboardInterrupt:
         write_info()
