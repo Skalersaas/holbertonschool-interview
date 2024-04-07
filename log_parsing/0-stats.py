@@ -1,18 +1,14 @@
 #!/usr/bin/python3
-"""
-script that reads stdin line by line and computes metrics
-"""
+"""Script to get stats from a request"""
 
 import sys
-from typing import List
-
 
 file_size: int = 0
 ids = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 count = 0
 
 
-def parse(line: str) -> List[int]:
+def parse(line):
     '''Parses input line and returns last two values'''
     nums = line.rstrip().split(' ')
     try:
@@ -21,7 +17,7 @@ def parse(line: str) -> List[int]:
         return None
 
 
-def write_info() -> None:
+def write_info():
     '''Writes info to the terminal'''
     print("File size:", file_size)
     for key in ids.keys():
