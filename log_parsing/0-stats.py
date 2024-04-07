@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-
 """
-Checks statistics and write it to the terminal
+    script that reads stdin line by line and computes metrics
 """
-
 import sys
 from typing import List
+
 
 
 file_size: int = 0
