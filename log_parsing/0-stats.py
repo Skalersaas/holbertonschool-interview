@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-Checks statistics
+Checks statistics and write it to the terminal
 '''
 
 import sys
