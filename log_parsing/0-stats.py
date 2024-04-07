@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-'''Checks statistics'''
+'''
+Checks statistics
+'''
+
 import sys
 from typing import List
 
