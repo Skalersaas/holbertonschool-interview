@@ -13,6 +13,7 @@ count = 0
 
 
 def parse(line: str) -> List[int]:
+    '''Parses input line and returns last two values'''
     nums = line.rstrip().split(' ')
     try:
         return [int(nums[7]), int(nums[8])]
@@ -21,6 +22,7 @@ def parse(line: str) -> List[int]:
 
 
 def write_info() -> None:
+    '''Writes info to the terminal'''
     print("File size:", file_size)
     for key in ids.keys():
         if ids[key] > 0:
