@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""Script to get stats from a request"""
 
+'''
+Reads stdin line by line and computes metrics
+'''
 import sys
 
-if __name__=="__main__":
+if __name__ == "__main__":
+
+
     file_size: int = 0
     ids = {
         200: 0,
@@ -32,6 +36,8 @@ if __name__=="__main__":
         for key in ids.keys():
             if ids[key] > 0:
                 print(f"{key}: {ids[key]}")
+
+
     while True:
         try:
             for line in sys.stdin:
