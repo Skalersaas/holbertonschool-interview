@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-'''
+"""
 Checks statistics and write it to the terminal
-'''
+"""
 
 import sys
 from typing import List
