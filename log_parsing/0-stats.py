@@ -21,7 +21,9 @@ if __name__ == "__main__":
 
 
     def parse(line):
-        '''Parses input line and returns last two values'''
+        '''
+        Parses input line and returns last two values
+        '''
         nums = line.rstrip().split(' ')
         try:
             return [int(nums[7]), int(nums[8])]
@@ -30,7 +32,9 @@ if __name__ == "__main__":
 
 
     def write_info():
-        '''Writes info to the terminal'''
+        '''
+        Writes info to the terminal
+        '''
         print("File size:", file_size)
         for key in ids.keys():
             if ids[key] > 0:
@@ -39,6 +43,7 @@ if __name__ == "__main__":
 
     while True:
         try:
+            # read all lines
             for line in sys.stdin:
                 if count == 9:
                     write_info()
