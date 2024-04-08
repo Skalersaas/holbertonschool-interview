@@ -13,13 +13,13 @@ def print_msg(ids, file_size):
         if val != 0:
             print("{}: {}".format(key, val))
 
-# def get_values(line):
-#     nums = line.rstrip().split(' ')
-#     try:
-#         ids[int(nums[-2])] += 1
-#         file_size += int(nums[-1])
-#     except BaseException:
-#         pass
+def get_values(line):
+    nums = line.rstrip().split(' ')
+    try:
+        ids[int(nums[-2])] += 1
+        file_size += int(nums[-1])
+    except BaseException:
+        pass
 
 
 # file_size = 0
