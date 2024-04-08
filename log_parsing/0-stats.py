@@ -7,7 +7,7 @@ all info will be printed"""
 import sys
 
 file_size = 0
-count = 1
+count = 0
 ids = {
     "200": 0,
     "301": 0,
@@ -33,7 +33,7 @@ try:
             ids[nums[-2]] += 1
             file_size += int(nums[-1])
         except BaseException:
-            pass        
+            pass    
         count += 1
         if count % 10 == 0:
             print_msg(ids, file_size)
