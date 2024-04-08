@@ -7,12 +7,11 @@ all info will be printed"""
 import sys
 
 
-def print_msg(codes, file_size):
+def print_msg(ids, file_size):
     print("File size: {}".format(file_size))
-    for key, val in sorted(codes.items()):
+    for key, val in sorted(ids.items()):
         if val != 0:
             print("{}: {}".format(key, val))
-
 
 # def get_values(line):
 #     nums = line.rstrip().split(' ')
