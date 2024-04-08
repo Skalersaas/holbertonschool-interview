@@ -1,45 +1,49 @@
 #!/usr/bin/python3
-
-"""Reads stdin line by line and computes metrics
-If count of lines is evenly divided by 10 and/or
-keyboardinterrupt
-all info will be printed"""
-
+"""
+    script that reads stdin line by line and computes metrics
+"""
 import sys
 
-if __name__ == "__main__":
 
-    file_size = 0
-    ids = {200: 0, 301: 0, 400: 0, 401: 0,
-           403: 0, 404: 0, 405: 0, 500: 0}
-    count = 1
+def print_msg(codes, file_size):
+    print("File size: {}".format(file_size))
+    for key, val in sorted(codes.items()):
+        if val != 0:
+            print("{}: {}".format(key, val))
 
-    def parse(line):
-        '''
-        Parses input line and returns last two values
-        '''
-        nums = line.rstrip().split(' ')
-        try:
-            ids[int(nums[-2])] += 1
-            file_size += int(nums[-1])
-        except BaseException:
-            pass 
 
-    def write_info():
-        '''
-        Writes info to the terminal
-        '''
-        print("File size:", file_size)
-        for key in ids.keys():
-            if ids[key] > 0:
-                print(f"{key}: {ids[key]}")
+file_size = 0
+code = 0
+count_lines = 0
+codes = {
+    "200": 0,
+    "301": 0,
+    "400": 0,
+    "401": 0,
+    "403": 0,
+    "404": 0,
+    "405": 0,
+    "500": 0
+}
 
-    try:
-        # read all lines
-        for line in sys.stdin:
-            parse(line)
-            if count % 10 == 0:
-                write_info()
-            count += 1
-    except KeyboardInterrupt:
-        write_info()
+try:
+    for line in sys.stdin:
+        parsed_line = line.split()
+        parsed_line = parsed_line[::-1]
+
+        if len(parsed_line) > 2:
+            count_lines += 1
+
+            if count_lines <= 10:
+                file_size += int(parsed_line[0])
+                code = parsed_line[1]
+
+                if (code in codes.keys()):
+                    codes[code] += 1
+
+            if (count_lines == 10):
+                print_msg(codes, file_size)
+                count_lines = 0
+
+finally:
+    print_msg(codes, file_size)
