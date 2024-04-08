@@ -14,7 +14,7 @@ def print_msg(ids, file_size):
             print(f"{key}: {ids[key]}")
 
 
-def parse(line):
+def get_values(line):
     nums = line.rstrip().split(' ')
     try:
         ids[int(nums[-2])] += 1
@@ -38,7 +38,7 @@ ids = {
 
 try:
     for line in sys.stdin:
-        parse(line)
+        get_values(line)
 
         if count % 10 == 0:
             print_msg(ids,file_size)
