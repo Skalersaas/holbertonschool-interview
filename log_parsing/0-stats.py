@@ -19,6 +19,7 @@ ids = {
     "500": 0
 }
 
+
 def print_msg(ids, file_size):
     print("File size: {}".format(file_size))
     for key, val in sorted(ids.items()):
@@ -38,7 +39,7 @@ try:
                 print_msg(ids, file_size)
         except BaseException:
             pass
-        
+
 
 finally:
     print_msg(ids, file_size)
