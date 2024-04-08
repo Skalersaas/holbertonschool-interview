@@ -32,10 +32,10 @@ try:
         try:
             if nums[-2] in ids:
                 ids[nums[-2]] += 1
-                file_size += int(nums[-1])
-                count += 1
-                if count % 10 == 0:
-                    print_msg(ids, file_size)
+            file_size += int(nums[-1])
+            count += 1
+            if count % 10 == 0:
+                print_msg(ids, file_size)
         except BaseException:
             pass
         
