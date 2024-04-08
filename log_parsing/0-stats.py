@@ -7,7 +7,7 @@ all info will be printed"""
 import sys
 
 
-def write_info():
+def print_msg(ids, file_size):
     '''
     Writes info to the terminal
     '''
@@ -48,7 +48,7 @@ try:
     for line in sys.stdin:
         parse(line)
         if count % 10 == 0:
-            write_info()
+            print_msg(ids,file_size)
         count += 1
 finally:
-    write_info()
+    print_msg(ids,file_size)
