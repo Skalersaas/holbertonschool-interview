@@ -34,7 +34,6 @@ try:
             file_size += int(nums[-1])
         except BaseException:
             pass        
-        print(file_size)
         count += 1
         if count % 10 == 0:
             print_msg(ids, file_size)
