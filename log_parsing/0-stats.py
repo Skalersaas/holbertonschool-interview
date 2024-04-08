@@ -6,22 +6,6 @@ all info will be printed"""
 
 import sys
 
-
-def print_msg(ids, file_size):
-    print("File size: {}".format(file_size))
-    for key, val in sorted(ids.items()):
-        if val != 0:
-            print("{}: {}".format(key, val))
-
-def get_values(line):
-    nums = line.rstrip().split(' ')
-    try:
-        ids[int(nums[-2])] += 1
-        file_size += int(nums[-1])
-    except BaseException:
-        pass
-
-
 file_size = 0
 count = 1
 ids = {
@@ -35,11 +19,23 @@ ids = {
     "500": 0
 }
 
+def print_msg(ids, file_size):
+    print("File size: {}".format(file_size))
+    for key, val in sorted(ids.items()):
+        if val != 0:
+            print("{}: {}".format(key, val))
+
+
 try:
     for line in sys.stdin:
-        get_values(line)
+        nums = line.rstrip().split(' ')
+        try:
+            ids[nums[-2]] += 1
+            file_size += int(nums[-1])
+        except BaseException:
+            pass        
+        print(file_size)
         count += 1
-
         if count % 10 == 0:
             print_msg(ids, file_size)
 
