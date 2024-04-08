@@ -7,11 +7,11 @@ all info will be printed"""
 import sys
 
 
-# def print_msg(ids, file_size):
-#     print("File size:", file_size)
-#     for key in ids.keys():
-#         if ids[key] > 0:
-#             print(f"{key}: {ids[key]}")
+def print_msg(ids, file_size):
+    print("File size:", file_size)
+    for key in ids.keys():
+        if ids[key] > 0:
+            print(f"{key}: {ids[key]}")
 
 
 # def get_values(line):
