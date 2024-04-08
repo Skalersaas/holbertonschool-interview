@@ -22,26 +22,26 @@ def get_values(line):
         pass
 
 
-# file_size = 0
-# count = 1
-# ids = {
-#     "200": 0,
-#     "301": 0,
-#     "400": 0,
-#     "401": 0,
-#     "403": 0,
-#     "404": 0,
-#     "405": 0,
-#     "500": 0
-# }
+file_size = 0
+count = 1
+ids = {
+    "200": 0,
+    "301": 0,
+    "400": 0,
+    "401": 0,
+    "403": 0,
+    "404": 0,
+    "405": 0,
+    "500": 0
+}
 
-# try:
-#     for line in sys.stdin:
-#         get_values(line)
-#         count += 1
+try:
+    for line in sys.stdin:
+        get_values(line)
+        count += 1
 
-#         if count % 10 == 0:
-#             print_msg(ids, file_size)
+        if count % 10 == 0:
+            print_msg(ids, file_size)
 
-# finally:
-#     print_msg(ids, file_size)
+finally:
+    print_msg(ids, file_size)
