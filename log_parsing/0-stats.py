@@ -30,11 +30,12 @@ try:
     for line in sys.stdin:
         nums = line.rstrip().split(' ')
         try:
-            ids[nums[-2]] += 1
-            file_size += int(nums[-1])
-            count += 1
-            if count % 10 == 0:
-                print_msg(ids, file_size)
+            if nums[-2] in ids:
+                ids[nums[-2]] += 1
+                file_size += int(nums[-1])
+                count += 1
+                if count % 10 == 0:
+                    print_msg(ids, file_size)
         except BaseException:
             pass
         
