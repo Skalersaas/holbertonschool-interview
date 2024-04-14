@@ -3,36 +3,16 @@
 
 int check_cycle(listint_t* list)
 {
-    if (!list)
-        return (0);
-    if (list == list->next)
-        return (1);
-    return (check_cycle2(list));
-}
+    listint_t* fast;
+    listint_t* slow;
 
-int check_cycle2(listint_t* list)
-{
-    listint_t* current;
-
-    current = list;
-    while (current != NULL)
+    fast = slow = list;
+    while (fast && slow && fast->next)
     {
-        if (check_node(list, current) == 1)
+        fast = fast->next->next;
+        slow = slow->next;
+        if (fast == slow)
             return (1);
-        current = current->next;
-    }
-    return (0);
-}
-int check_node(listint_t* list, listint_t* node)
-{
-    listint_t* current;
-
-    current = list;
-    while (current != node)
-    {
-        if (current == node->next)
-            return (1);
-        current = current->next;
     }
     return (0);
 }
