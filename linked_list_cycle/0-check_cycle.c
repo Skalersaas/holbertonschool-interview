@@ -5,6 +5,11 @@ int check_cycle(listint_t* list)
 {
     if (list == list->next)
         return (1);
+    return (check_cycle2(list));
+}
+
+int check_cycle2(listint_t* list)
+{
     listint_t* current;
 
     current = list;
@@ -16,7 +21,6 @@ int check_cycle(listint_t* list)
     }
     return (0);
 }
-
 int check_node(listint_t* list, listint_t* node)
 {
     listint_t* current;
