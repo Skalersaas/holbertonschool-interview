@@ -5,7 +5,7 @@ int check_cycle(listint_t* list)
 {
     if (list == list->next)
         return (1);
-    const listint_t* current;
+    listint_t* current;
 
     current = list;
     while (current != NULL)
@@ -19,7 +19,7 @@ int check_cycle(listint_t* list)
 
 int check_node(listint_t* list, listint_t* node)
 {
-    const listint_t* current;
+    listint_t* current;
 
     current = list;
     while (current != node)
