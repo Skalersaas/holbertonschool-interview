@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "palindrome.h"
-int size(int n)
+int size(long n)
 {
     int i = 0;
     for(i = 1;;i++)
@@ -12,8 +12,8 @@ int size(int n)
     return 0;
 }
 
-int pow_10(int n){
-    int value = 1;
+long pow_10(int n){
+    long value = 1;
     int i = 0;
     for(i =0;i<n;i++)
     {
@@ -21,13 +21,13 @@ int pow_10(int n){
     }
     return value;
 }
-int is_palindrome(int n) {
+int is_palindrome(long n) {
     int Size = size(n);
     int i = 0;
     for(i =0;i<Size;i++)
     {
-        int leftmost = n / pow_10(Size-i-1) % 10;
-        int rightmost = n / pow_10(i) % 10;
+        long leftmost = n / pow_10(Size-i-1) % 10;
+        long rightmost = n / pow_10(i) % 10;
         if(leftmost!=rightmost)
             return 0;
     }
