@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "palindrome.h"
+#define ULLONG_MAX 18446744073709551615ULL
+
 int size(long n)
 {
     int i = 0;
@@ -22,12 +24,15 @@ long pow_10(int n){
     return value;
 }
 int is_palindrome(long n) {
+    if(n== ULLONG_MAX)
+        return 0;
+
     int Size = size(n);
     int i = 0;
     for(i =0;i<Size;i++)
     {
-        long leftmost = n / pow_10(Size-i-1) % 10;
-        long rightmost = n / pow_10(i) % 10;
+        char leftmost = n / pow_10(Size-i-1) % 10;
+        char rightmost = n / pow_10(i) % 10;
         if(leftmost!=rightmost)
             return 0;
     }
