@@ -24,11 +24,11 @@ long pow_10(int n){
 }
 int is_palindrome(long n) {
     int Size = size(n);
+    int i = 0;    
     
     if(n < 0)
         return 0;
 
-    int i = 0;
     for(i =0;i<Size;i++)
     {
         char leftmost = n / pow_10(Size-i-1) % 10;
