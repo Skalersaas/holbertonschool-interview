@@ -22,10 +22,10 @@ long pow_10(int n){
     }
     return value;
 }
-int is_palindrome(unsigned long long n) {
+int is_palindrome(long n) {
     int Size = size(n);
     
-    if(n > 18446744073709551614ULL)
+    if(n < 0)
         return 0;
 
     int i = 0;
