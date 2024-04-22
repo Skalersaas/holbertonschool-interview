@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <palindrome.h>
+#include "palindrome.h"
 int size(int n)
 {
     for(int i = 1;;i++)
