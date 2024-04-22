@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "palindrome.h"
-#define ULLONG_MAX 18446744073709551614ULL
 
 int size(long n)
 {
@@ -23,10 +22,10 @@ long pow_10(int n){
     }
     return value;
 }
-int is_palindrome(long n) {
+int is_palindrome(unsigned long long n) {
     int Size = size(n);
     
-    if(n > ULLONG_MAX)
+    if(n > 18446744073709551614ULL)
         return 0;
 
     int i = 0;
