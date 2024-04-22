@@ -26,7 +26,7 @@ long pow_10(int n){
 int is_palindrome(long n) {
     int Size = size(n);
     
-    if(n== ULLONG_MAX)
+    if(n > ULLONG_MAX)
         return 0;
 
     int i = 0;
