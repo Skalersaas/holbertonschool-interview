@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""VALIDATOR ejji"""
+"""VALIDATOR module"""
 
 
 def CC(item):
