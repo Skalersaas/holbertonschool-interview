@@ -6,21 +6,22 @@ def validUTF8(data):
     """Function"""
     count = 0
     while data:
-        binary = bin(data[0])[2:].rjust(8, '0')[:2]
+        binary = bin(data[0]).replace('0b', '').rjust(8, '0')[-8:]
         data.pop(0)
         if count == 0:
-            if binary == "11":
+            if binary.startswith('110'):
                 count = 1
-            elif binary == "111":
+            elif binary.startswith('1110'):
                 count = 2
-            elif binary == "1111":
+            elif binary.startswith('11110'):
                 count = 3
-            else:
+            elif binary.startswith('10'):
                 return False
         else:
-            if binary != "10":
+            if not binary.startswith("10"):
                 return False
             count -= 1
+
     if count != 0:
         return False
     return True
