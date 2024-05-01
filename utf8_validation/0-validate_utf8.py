@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+"""VALIDATOR"""
 def CC(item):
+    """count of 1"""
     count = -1
     for i in item:
         if i=='1':
@@ -8,6 +10,7 @@ def CC(item):
             break
     return count
 def validUTF8(data) -> bool:
+    """valid"""
     while data:
         li = f'{data[0]:08b}'
         if li[:2] == '10':
