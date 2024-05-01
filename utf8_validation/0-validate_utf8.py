@@ -6,7 +6,7 @@ def validUTF8(data):
     """Function"""
     
     while data:
-        li = f'{data[0]:08b}'
+        li = bin(data[0]).replace('0b', '').rjust(8, '0')[-8:]
         if li[:2] == '10':
             return False
         data.pop(0)
@@ -23,7 +23,7 @@ def validUTF8(data):
 
         while count!=0:
             count-=1
-            if not data or f'{data[0]:08b}'[:2] != '10':
+            if not data or bin(data[0]).replace('0b', '').rjust(8, '0')[-8:][:2] != '10':
                 return False
             data.pop(0)
     return True
