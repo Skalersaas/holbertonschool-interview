@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" method that determines if a given data set represents a valid UTF-8 encoding"""
+"""
+method that determines if a given data set represents a valid UTF-8 encoding
+"""
+from typing import List
 
 
 def CC(item: str):
@@ -12,7 +15,7 @@ def CC(item: str):
             break
     return count
 
-def validUTF8(data) -> bool:
+def validUTF8(data: List[int]) -> bool:
     """valid utf8"""
     while data:
         li = f'{data[0]:08b}'
