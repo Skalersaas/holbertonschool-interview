@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""VALIDATOR module"""
+""" method that determines if a given data set represents a valid UTF-8 encoding"""
 
 
-def CC(item):
+def CC(item: str):
     """count of 1"""
     count = -1
     for i in item:
