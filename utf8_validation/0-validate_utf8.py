@@ -9,15 +9,14 @@ def validUTF8(data):
         binary = bin(data[0])[2:].rjust(8, '0')[:2]
         data.pop(0)
         if count == 0:
-            match binary:
-                case "11":
-                    count = 1
-                case "111":
-                    count = 2
-                case "1111":
-                    count = 3
-                case "10":
-                    return False
+            if binary == "11":
+                count = 1
+            elif binary == "111":
+                count = 2
+            elif binary == "1111":
+                count = 3
+            else:
+                return False
         else:
             if binary != "10":
                 return False
