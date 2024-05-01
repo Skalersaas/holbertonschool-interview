@@ -4,26 +4,24 @@
 
 def validUTF8(data):
     """Function"""
-    
+    count = 0
     while data:
-        li = "{0:08b}".format(data[0])
-        if li[:2] == '10':
-            return False
+        binary = bin(data[0])[2:].rjust(8, '0')[:2]
         data.pop(0)
-        count = -1
-        for i in li:
-            if i=='1':
-                count+=1
-            else:
-                break
-        if count>=4:
-            return False
-        if count==-1:
-            continue
-
-        while count!=0:
-            count-=1
-            if not data or f'{data[0]:08b}'[:2] != '10':
+        if count == 0:
+            match binary:
+                case "11":
+                    count = 1
+                case "111":
+                    count = 2
+                case "1111":
+                    count = 3
+                case "10":
+                    return False
+        else:
+            if binary != "10":
                 return False
-            data.pop(0)
+            count -= 1
+    if count != 0:
+        return False
     return True
