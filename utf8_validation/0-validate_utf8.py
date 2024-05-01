@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """VALIDATOR"""
+
+
 def CC(item):
     """count of 1"""
     count = -1
