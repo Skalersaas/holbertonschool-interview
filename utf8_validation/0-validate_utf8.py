@@ -2,8 +2,9 @@
 """UTF-8 validator"""
 
 
-def validUTF8(data) -> bool:
+def validUTF8(data):
     """Function"""
+    
     while data:
         li = f'{data[0]:08b}'
         if li[:2] == '10':
