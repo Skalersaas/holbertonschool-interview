@@ -5,15 +5,6 @@ method that determines if a given data set represents a valid UTF-8 encoding
 from typing import List
 
 
-def CC(item: str):
-    """count of 1"""
-    count = -1
-    for i in item:
-        if i=='1':
-            count+=1
-        else:
-            break
-    return count
 
 def validUTF8(data: List[int]) -> bool:
     """valid utf8"""
@@ -22,7 +13,12 @@ def validUTF8(data: List[int]) -> bool:
         if li[:2] == '10':
             return False
         data.pop(0)
-        count = CC(li)
+        count = -1
+        for i in li:
+            if i=='1':
+                count+=1
+            else:
+                break
         if count>=4:
             return False
         if count==-1:
