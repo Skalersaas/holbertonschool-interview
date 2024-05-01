@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""VALIDATOR"""
+"""VALIDATOR ejji"""
 
 
 def CC(item):
@@ -11,8 +11,9 @@ def CC(item):
         else:
             break
     return count
+
 def validUTF8(data) -> bool:
-    """valid"""
+    """valid utf8"""
     while data:
         li = f'{data[0]:08b}'
         if li[:2] == '10':
