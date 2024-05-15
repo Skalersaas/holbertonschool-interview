@@ -5,16 +5,14 @@ int slide_line(int* line, size_t size, int direction)
 	switch (direction)
 	{
 	case SLIDE_LEFT:
-		slide_left(line, size);
-		return 1;
+		return slide_left(line, size);
 	case SLIDE_RIGHT:
-		slide_right(line, size);
-		return 1;
+		return slide_right(line, size);
 	default:
 		return 0;
 	}
 }
-void slide_right(int* line, size_t size)
+int slide_right(int* line, size_t size)
 {
 	int mx = size;
 	int i, j;
@@ -39,8 +37,9 @@ void slide_right(int* line, size_t size)
 			}
 		}
 	}
+	return (1);
 }
-void slide_left(int* line, size_t size)
+int slide_left(int* line, size_t size)
 {
 	int mn = -1;
 	int i, j;
@@ -65,4 +64,5 @@ void slide_left(int* line, size_t size)
 			}
 		}
 	}
+	return (1);
 }
