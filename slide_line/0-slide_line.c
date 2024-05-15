@@ -20,11 +20,12 @@ int slide_line(int* line, size_t size, int direction)
 void slide_right(int* line, size_t size)
 {
 	int mx = size;
-	for (int i = size - 1; i >= 0; i--)
+	int i, j;
+	for (i = size - 1; i >= 0; i--)
 	{
 		if (line[i] != 0)
 		{
-			for (int j = i; j < size - 1; j++) 
+			for (j = i; j < size - 1; j++) 
 			{
 				i = j;
 				if (line[j + 1] != 0)
@@ -45,11 +46,12 @@ void slide_right(int* line, size_t size)
 void slide_left(int* line, size_t size)
 {
 	int mn = -1;
-	for (int i = 1; i < size; i++)
+	int i, j;
+	for (i = 1; i < size; i++)
 	{
 		if (line[i] != 0)
 		{
-			for (int j = i; j >= 0; j--)
+			for (j = i; j >= 0; j--)
 			{
 				i = j;
 				if (line[j - 1] != 0)
