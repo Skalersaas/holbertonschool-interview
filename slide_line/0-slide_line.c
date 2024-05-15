@@ -17,7 +17,6 @@ int slide_line(int* line, size_t size, int direction)
 		return 0;
 	}
 }
-/// 2 0 2 4 8 4 4 0 0 0
 void slide_right(int* line, size_t size)
 {
 	int mx = size;
