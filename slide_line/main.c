@@ -3,37 +3,45 @@
 
 #include "slide_line.h"
 
-#define LINE_SIZE   32
-
 /**
  * print_array - Prints out an array of integer, followed by a new line
  *
  * @array: Pointer to the array of integer to be printed
  * @size: Number of elements in @array
  */
-void print_array(int const* array, size_t size)
+static void print_array(int const* array, size_t size)
 {
-    size_t i;
+	size_t i;
 
-    printf("Line: ");
-    for (i = 0; i < size; i++)
-        printf("%s%d", i > 0 ? ", " : "", array[i]);
-    printf("\n");
+	printf("Line: ");
+	for (i = 0; i < size; i++)
+		printf("%s%d", i > 0 ? ", " : "", array[i]);
+	printf("\n");
 }
 
 /**
  * main - Entry point
  *
- * @ac: Arguments counter
- * @av: Arguments vector
- *
  * Return: EXIT_SUCCESS or EXIT_FAILURE
  */
-int main(int ac, char** av)
+int main(void)
 {
-    int line[32] = { 2, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4 };
+	int line[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2 };
+	int direction = SLIDE_LEFT;
+	size_t size = sizeof(line) / sizeof(line[0]);
 
-    print_array(line, 14);
-    slide_line(line, 14, 2);
-    print_array(line, 14);
+	/* Print the array */
+	print_array(line, size);
+
+	/* Slide and merge */
+	if (!slide_line(line, size, direction))
+	{
+		fprintf(stderr, "Failed to slide and merge line\n");
+		return (EXIT_FAILURE);
+	}
+
+	/* Print the array */
+	print_array(line, size);
+
+	return (EXIT_SUCCESS);
 }
