@@ -25,7 +25,7 @@ void slide_right(int* line, size_t size)
 	{
 		if (line[i] != 0)
 		{
-			for (j = i; j < size - 1; j++) 
+			for (j = i; j < (int)size - 1; j++) 
 			{
 				i = j;
 				if (line[j + 1] != 0)
