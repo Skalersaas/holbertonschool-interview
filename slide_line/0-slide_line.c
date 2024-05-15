@@ -47,7 +47,7 @@ void slide_left(int* line, size_t size)
 {
 	int mn = -1;
 	int i, j;
-	for (i = 1; i < size; i++)
+	for (i = 1; i < (int)size; i++)
 	{
 		if (line[i] != 0)
 		{
