@@ -8,6 +8,8 @@
  * @array: The array to be added to
  * @size: Size of the array
  * @parent: parent
+ *
+ * Return: pointer
  */
 binary_tree_t *add_node(int *array, size_t size, avl_t *parent)
 {
@@ -43,6 +45,8 @@ binary_tree_t *add_node(int *array, size_t size, avl_t *parent)
  *
  * @array: The array to be sorted
  * @size: Size of the array
+ *
+ * Return: array
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
