@@ -1,28 +1,25 @@
 #!/usr/bin/node
-// script that prints all characters of a Star Wars movie in order
+
 const request = require('request');
-const myArgs = process.argv.splice(2);
-const URL = 'https://swapi-api.hbtn.io/api/films/' + myArgs[0];
-request.get(URL, async (err, response, body) => {
-  if (err) {
-    console.log(err);
-  } else {
-    const character = JSON.parse(body).characters;
-    const characterList = characterURLs => {
-      const promise = new Promise((resolve, reject) => {
-        request.get(characterURLs, (err, response, body) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(body);
-          }
-        });
-      });
-      return promise;
-    };
-    for (let i = 0; i < character.length; i++) {
-      const result = await characterList(character[i]);
-      console.log(JSON.parse(result).name);
-    }
-  }
+const arg = process.argv[2];
+const url = `https://swapi-api.hbtn.io/api/films/${arg}`;
+
+const charNames = (characters, i = 0) => {
+  if (i === characters.length) return;
+  request(characters[i], (error, response, body) => {
+    if (error) throw error;
+    // Convert a string of characters JSON to a JavaScript object and print it
+    console.log(JSON.parse(body).name);
+    // Call recursively the function charNames and increment it to pass to the next character
+    charNames(characters, i + 1);
+  });
+};
+
+// Request to the API to recover movie information
+request(url, function (error, response, body) {
+  if (error) throw error;
+  // Extract URL of characters from the body JSON response and store it in a var char
+  const char = JSON.parse(body).characters;
+  // Call the function charNames to print the characters
+  charNames(char);
 });
